@@ -5,10 +5,10 @@ FROM openjdk:17-jdk-slim as backend
 WORKDIR /app
 
 # Copy the Spring Boot JAR file into the container
-COPY target/email-assistant-0.0.1-SNAPSHOT.jar /app/app.jar
+COPY target/email-assistant-0.0.1-SNAPSHOT.jar /app
 
 # Expose the application port
 EXPOSE 8080
 
 # Run the Spring Boot application
-ENTRYPOINT ["java", "-jar", "/app/app.jar"]
+ENTRYPOINT ["java", "-jar", "/app/email-assistant-0.0.1-SNAPSHOT.jar"]

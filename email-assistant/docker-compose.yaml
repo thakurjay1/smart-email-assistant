@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .  # Path to your project directory (current directory)
+      dockerfile: Dockerfile  # Path to the Dockerfile
+    env_file:
+      - .env  # Load environment variables from the .env file
+    ports:
+      - "8080:8080"  # Map port 8080 on the host to port 8080 in the container
+    networks:
+      - app-network
+    volumes:
+      - ./target/email-assistant-0.0.1-SNAPSHOT.jar:/app/email-assistant-0.0.1-SNAPSHOT.jar
+
+networks:
+  app-network:
+    driver: bridge
